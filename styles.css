@@ -300,13 +300,12 @@
   .carousel-dots button{
     transition:none;
   }
-}
 /* ==========================================================
-   FINAL HERO + CAROUSEL IMAGE CORRECTIONS
+   FINAL HERO + FIXED CAROUSEL FORMAT
    ========================================================== */
 
 /* ----------------------------------------------------------
-   1. HERO PHOTO — LARGER ON DESKTOP ONLY
+   HERO — larger portrait on desktop only
    ---------------------------------------------------------- */
 
 @media (min-width: 981px) {
@@ -334,64 +333,91 @@
 }
 
 /* ----------------------------------------------------------
-   2. CAROUSEL — PORTRAIT + LANDSCAPE IMAGE FORMATS
+   CAROUSEL — desktop fixed format
    ---------------------------------------------------------- */
+
+.carousel-slide,
+.carousel-slide.active {
+  width: 100%;
+  min-width: 0;
+
+  height: 520px;
+  min-height: 520px;
+
+  grid-template-columns:
+    minmax(0, 1.35fr)
+    minmax(320px, 0.65fr);
+
+  align-items: stretch;
+  overflow: hidden;
+}
+
+/* Fixed image frame */
 
 .gallery-photo {
   position: relative;
-  min-width: 0;
-  min-height: 0;
-  height: auto;
-  aspect-ratio: 4 / 3;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  overflow: hidden;
-  padding: clamp(10px, 1.4vw, 18px);
-
-  background:
-    radial-gradient(
-      circle at 30% 20%,
-      rgba(255, 255, 255, 0.92),
-      transparent 38%
-    ),
-    linear-gradient(
-      135deg,
-      #f4f6f8 0%,
-      #e7ebf0 100%
-    );
-}
-
-.gallery-photo img {
-  position: relative;
-  z-index: 1;
 
   width: 100%;
+  max-width: 100%;
+  min-width: 0;
+
+  height: 520px;
+  min-height: 520px;
+
+  aspect-ratio: auto;
+  padding: 0;
+
+  display: block;
+  overflow: hidden;
+
+  background: #eef1f5;
+}
+
+/* Every image fills the same frame */
+
+.gallery-photo img {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  max-width: 100%;
   height: 100%;
   min-height: 0;
 
   display: block;
 
-  object-fit: contain;
-  object-position: center;
+  object-fit: cover;
+  object-position: center center;
 
   transform: none;
 }
 
-/* Remove old fixed carousel heights */
-
-.carousel-slide,
-.carousel-slide.active {
-  min-height: 0;
-  height: auto;
-  align-items: stretch;
-}
+/* Fixed text column */
 
 .carousel-copy {
-  min-height: 0;
-  height: auto;
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  min-width: 0;
+
+  height: 520px;
+  min-height: 520px;
+
+  padding: clamp(28px, 3vw, 48px);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  overflow: hidden;
+  background: #fff;
+}
+
+.carousel-copy h3,
+.carousel-copy p {
+  max-width: 100%;
+  overflow-wrap: anywhere;
 }
 
 /* ----------------------------------------------------------
@@ -399,14 +425,32 @@
    ---------------------------------------------------------- */
 
 @media (max-width: 980px) {
-  .gallery-photo {
+  .carousel-slide,
+  .carousel-slide.active {
+    height: auto;
     min-height: 0;
-    aspect-ratio: 16 / 10;
-    padding: 12px;
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-photo {
+    width: 100%;
+    height: 480px;
+    min-height: 480px;
   }
 
   .gallery-photo img {
     min-height: 0;
+  }
+
+  .carousel-copy {
+    width: 100%;
+    height: auto;
+    min-height: 0;
+
+    padding: 32px;
+
+    justify-content: flex-start;
+    overflow: visible;
   }
 }
 
@@ -416,20 +460,21 @@
 
 @media (max-width: 760px) {
   .gallery-photo {
-    min-height: 0;
-    aspect-ratio: 4 / 3;
-    padding: 10px;
+    height: 340px;
+    min-height: 340px;
   }
 
   .gallery-photo img {
     min-height: 0;
   }
 
-  /*
-   Keep the hero portrait at its current mobile size,
-   since the mobile version is already working well.
-  */
+  .carousel-copy {
+    height: auto;
+    min-height: 0;
+    padding: 26px 22px 28px;
+  }
 
+  /* Preserve the mobile hero portrait */
   .portrait-card,
   .portrait-card img {
     min-height: 420px;
@@ -448,12 +493,11 @@
 
 @media (max-width: 430px) {
   .gallery-photo {
-    min-height: 0;
-    aspect-ratio: 4 / 3;
-    padding: 8px;
+    height: 280px;
+    min-height: 280px;
   }
 
-  .gallery-photo img {
-    min-height: 0;
+  .carousel-copy {
+    padding: 22px 18px 24px;
   }
 }
