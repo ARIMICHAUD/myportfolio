@@ -23,6 +23,18 @@
         lang === "fr" ? "View the site in English" : "Voir le site en français"
       );
     }
+
+    document.querySelectorAll(".carousel-btn[data-label-fr][data-label-en]").forEach((button) => {
+      button.setAttribute("aria-label", button.dataset[`label${lang === "fr" ? "Fr" : "En"}`]);
+    });
+
+    document.querySelectorAll(".carousel-dots button[data-slide-number]").forEach((dot) => {
+      const number = dot.dataset.slideNumber;
+      dot.setAttribute(
+        "aria-label",
+        lang === "fr" ? `Afficher la diapositive ${number}` : `Show slide ${number}`
+      );
+    });
   };
 
   if (langButton) {
@@ -78,7 +90,13 @@
 
       const dot = document.createElement("button");
       dot.type = "button";
-      dot.setAttribute("aria-label", `Afficher la diapositive ${index + 1}`);
+      dot.dataset.slideNumber = String(index + 1);
+      dot.setAttribute(
+        "aria-label",
+        root.lang === "fr"
+          ? `Afficher la diapositive ${index + 1}`
+          : `Show slide ${index + 1}`
+      );
       dot.addEventListener("click", () => showSlide(index));
       dotsContainer.appendChild(dot);
       return dot;
