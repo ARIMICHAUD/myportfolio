@@ -496,3 +496,138 @@ so they completely fill the 16:9 frame.
     padding: 22px 18px 24px;
   }
 }
+   /* ==========================================================
+   GUARANTEED 16:9 CAROUSEL FIX
+   Must remain at the very end of styles.css
+   ========================================================== */
+
+/* Desktop slide layout */
+.carousel-slide,
+.carousel-slide.active {
+  width: 100% !important;
+  min-width: 0 !important;
+
+  height: auto !important;
+  min-height: 0 !important;
+
+  grid-template-columns:
+    minmax(0, 1.35fr)
+    minmax(320px, 0.65fr) !important;
+
+  align-items: start !important;
+  overflow: hidden !important;
+}
+
+/* Strict 16:9 image frame */
+.gallery-photo {
+  position: relative !important;
+  align-self: start !important;
+
+  width: 100% !important;
+  min-width: 0 !important;
+
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+
+  aspect-ratio: 16 / 9 !important;
+
+  padding: 0 !important;
+  overflow: hidden !important;
+  background: #eef1f5 !important;
+}
+
+/* Force every source image to fill that 16:9 frame */
+.gallery-photo img {
+  position: absolute !important;
+  inset: 0 !important;
+
+  width: 100% !important;
+  height: 100% !important;
+
+  min-width: 0 !important;
+  min-height: 0 !important;
+  max-width: none !important;
+  max-height: none !important;
+
+  display: block !important;
+
+  object-fit: cover !important;
+  object-position: center center !important;
+
+  transform: none !important;
+}
+
+/* Text stays in its own column */
+.carousel-copy {
+  align-self: stretch !important;
+
+  width: 100% !important;
+  min-width: 0 !important;
+
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+
+  padding: clamp(28px, 3vw, 48px) !important;
+  overflow: visible !important;
+
+  background: #fff !important;
+}
+
+/* Tablet and mobile */
+@media (max-width: 980px) {
+  .carousel-slide,
+  .carousel-slide.active {
+    grid-template-columns: 1fr !important;
+    align-items: start !important;
+
+    height: auto !important;
+    min-height: 0 !important;
+  }
+
+  .gallery-photo {
+    width: 100% !important;
+
+    height: auto !important;
+    min-height: 0 !important;
+
+    aspect-ratio: 16 / 9 !important;
+  }
+
+  .gallery-photo img {
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 0 !important;
+  }
+
+  .carousel-copy {
+    height: auto !important;
+    min-height: 0 !important;
+    padding: 32px !important;
+  }
+}
+
+@media (max-width: 760px) {
+  .gallery-photo {
+    aspect-ratio: 16 / 9 !important;
+    height: auto !important;
+    min-height: 0 !important;
+  }
+
+  .carousel-copy {
+    padding: 26px 22px 28px !important;
+  }
+}
+
+@media (max-width: 430px) {
+  .gallery-photo {
+    aspect-ratio: 16 / 9 !important;
+    height: auto !important;
+    min-height: 0 !important;
+  }
+
+  .carousel-copy {
+    padding: 22px 18px 24px !important;
+  }
+}
