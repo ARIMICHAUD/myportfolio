@@ -125,9 +125,9 @@ button { color: inherit; }
 .hero {
   padding-block: clamp(4rem, 9vh, 7.5rem) clamp(4.5rem, 8vh, 7rem);
   display: grid;
-  grid-template-columns: minmax(0, 1.45fr) minmax(18rem, .65fr);
-  gap: clamp(2.5rem, 7vw, 7rem);
-  align-items: end;
+  grid-template-columns: minmax(0, 1.5fr) minmax(17rem, 25rem);
+  gap: clamp(2.5rem, 6vw, 6rem);
+  align-items: center;
 }
 .ai-badge {
   display: inline-flex;
@@ -176,8 +176,21 @@ button { color: inherit; }
 }
 .btn.dark { color: var(--white); background: var(--ink); }
 .btn:hover { transform: translateY(-2px); box-shadow: var(--shadow-sm); }
-.portrait-card { position: relative; overflow: hidden; background: var(--soft); box-shadow: var(--shadow-lg); }
-.portrait-card img { width: 100%; aspect-ratio: 3 / 4.4; display: block; object-fit: cover; object-position: 50% 18%; }
+.portrait-card {
+  position: relative;
+  width: min(100%, 25rem);
+  justify-self: end;
+  overflow: hidden;
+  background: var(--soft);
+  box-shadow: var(--shadow-lg);
+}
+.portrait-card img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  display: block;
+  object-fit: cover;
+  object-position: 50% 18%;
+}
 .portrait-caption {
   position: absolute;
   inset-inline: clamp(.9rem, 2vw, 1.25rem);
@@ -465,7 +478,8 @@ footer span:last-child { font-style: italic; }
 @media (max-width: 74rem) {
   .header nav { gap: .8rem; }
   .header nav a { font-size: .72rem; }
-  .hero { grid-template-columns: minmax(0, 1.2fr) minmax(17rem, .7fr); gap: 3rem; }
+  .hero { grid-template-columns: minmax(0, 1.25fr) minmax(16rem, 22rem); gap: 3rem; }
+  .portrait-card { width: min(100%, 22rem); }
   .four { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .five { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .carousel {
@@ -511,9 +525,20 @@ footer span:last-child { font-style: italic; }
     white-space: normal;
   }
   .lang-toggle { justify-self: end; grid-column: 3; }
-  .hero { grid-template-columns: 1fr; align-items: start; }
-  .hero > div { max-width: 58rem; }
-  .portrait-card { width: min(28rem, 68vw); justify-self: center; }
+  .hero {
+    grid-template-columns: 1fr;
+    align-items: start;
+    justify-items: center;
+  }
+  .hero > div {
+    width: 100%;
+    max-width: 58rem;
+    justify-self: stretch;
+  }
+  .portrait-card {
+    width: min(21rem, 62vw);
+    justify-self: center;
+  }
   .split, .heading, .principles, .oyw-heading, .responsible-grid { grid-template-columns: 1fr; }
   .heading { gap: .5rem; }
   .three { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -576,8 +601,14 @@ footer span:last-child { font-style: italic; }
   }
   .lead { font-size: 1.02rem; line-height: 1.65; }
   .actions, .btn { width: 100%; }
-  .portrait-card { width: min(100%, 22rem); justify-self: center; }
-  .portrait-card img { aspect-ratio: 4 / 5; object-position: 50% 15%; }
+  .portrait-card {
+    width: min(18.5rem, 82vw);
+    justify-self: center;
+  }
+  .portrait-card img {
+    aspect-ratio: 4 / 5;
+    object-position: 50% 15%;
+  }
   .portrait-caption { inset-inline: .65rem; inset-block-end: .65rem; padding: .9rem; }
   .portrait-caption h2 { font-size: 1.2rem; }
   .identity-line { gap: .35rem; font-size: .78rem; line-height: 1.35; }
@@ -637,7 +668,7 @@ footer span:last-child { font-style: italic; }
   .menu-toggle { width: 2.35rem; }
   .lang-toggle { min-width: 2.2rem; font-size: .75rem; }
   .hero h1 { font-size: clamp(2.35rem, 11.5vw, 3rem); }
-  .portrait-card { width: min(100%, 19rem); }
+  .portrait-card { width: min(17rem, 88vw); }
   .portrait-caption { position: static; box-shadow: none; backdrop-filter: none; }
   .carousel-copy { padding-inline: .9rem; }
   .carousel-dots { gap: .45rem; }
@@ -647,9 +678,13 @@ footer span:last-child { font-style: italic; }
 
 @media (min-width: 100rem) {
   :root { --max: 88rem; }
-  .hero { grid-template-columns: minmax(0, 1.5fr) minmax(24rem, .62fr); }
+  .hero { grid-template-columns: minmax(0, 1.55fr) minmax(20rem, 26rem); }
   .hero h1 { font-size: clamp(7rem, 7.4vw, 9.5rem); }
-  .portrait-card { max-width: 32rem; justify-self: end; }
+  .portrait-card {
+    width: min(100%, 26rem);
+    max-width: 26rem;
+    justify-self: end;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
