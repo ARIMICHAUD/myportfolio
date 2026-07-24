@@ -8,7 +8,7 @@
 @media(max-width:760px){.portrait-card,.portrait-card img{min-height:520px}.carousel{grid-template-columns:1fr}.carousel-btn{position:absolute;z-index:2;margin-top:200px}.carousel-btn.prev{left:18px}.carousel-btn.next{right:18px}.carousel-slide.active{grid-template-columns:1fr}.gallery-placeholder{min-height:340px}}
 
 
-/* Version 3 additions — preserves the original visual system */
+/* Version 3 additions â€” preserves the original visual system */
 .identity-line{display:flex;gap:.55rem;flex-wrap:wrap;align-items:center;margin:0;color:var(--muted);font-size:.9rem;font-weight:600}.identity-line span[aria-hidden]{color:var(--accent)}
 .responsible{background:var(--ink);color:#fff}.responsible .heading p{color:#ffffffa8}.responsible .index,.responsible .eyebrow,.responsible small{color:#d7b47a}.responsible-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:22px}.oyw-card{padding:42px;border:1px solid #ffffff2b;background:#ffffff0b}.oyw-card h3{font-size:clamp(1.8rem,3vw,3.2rem);line-height:1.08;margin:16px 0}.oyw-card p{color:#ffffffb8;max-width:680px}.oyw-meta{display:flex;justify-content:space-between;gap:24px;margin-top:48px;padding-top:20px;border-top:1px solid #ffffff2b}.oyw-meta span{color:#ffffff8f}.responsible-pillars{display:grid;border-top:1px solid #ffffff2b}.responsible-pillars article{padding:22px 0;border-bottom:1px solid #ffffff2b}.responsible-pillars article>span{color:#d7b47a;font-size:.72rem;font-weight:700}.responsible-pillars h3{margin:7px 0}.responsible-pillars p{margin:0;color:#ffffff9d}.responsible blockquote{border-color:#d7b47a;max-width:1000px;color:#fff}
 .skill-tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px}.skill-tags span{padding:6px 9px;border:1px solid var(--line);font-size:.68rem;font-weight:700;color:var(--muted)}
@@ -23,7 +23,7 @@
 @media(max-width:760px){.gallery-photo,.gallery-photo img{min-height:330px}.carousel-slide{min-height:auto}.carousel-copy{padding:28px 24px}.oyw-heading h2{font-size:clamp(3.4rem,16vw,5rem)}footer{align-items:flex-start}}
 
 /* ==========================================================
-   PREMIUM RESPONSIVE CAROUSEL — FINAL
+   PREMIUM RESPONSIVE CAROUSEL â€” FINAL
    ========================================================== */
 
 .carousel{
